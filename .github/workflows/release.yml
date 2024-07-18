@@ -4,8 +4,7 @@ on:
   workflow_run:
     workflows: ["Lint Commit Messages"]
     branches:
-      - main
-      - beta
+      - local_build
     types:
       - completed
 
@@ -81,7 +80,7 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USER: siredmar
+          GITHUB_USER: jr200
         run: |-
           #!/bin/bash
           set -e

@@ -129,7 +129,7 @@ spec:
     plugins:
       - plugin_name: vault-plugin-secrets-nats
         command: vault-plugin-secrets-nats --tls-skip-verify --ca-cert=/vault/tls/ca.crt
-        sha256: e03f5771e7806296e9f77ccffde203ce2ea5ce0728df6d88054bb7939c6dc392
+        sha256: ae06cfa56211742806155e98b5b5f7bf85d395f50fed5e1fdcc8e3ccdf70572c
         type: secret
 
     policies:
