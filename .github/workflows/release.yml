@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Lint Commit Messages"]
     branches:
-      - local_build
+      - alpha
     types:
       - completed
 
@@ -32,8 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: ['linux', 'windows', 'darwin']
-        architecture: [amd64, arm64]
+        os: ['linux', 'darwin']
+        architecture: [amd64]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -84,5 +84,6 @@ jobs:
         run: |-
           #!/bin/bash
           set -e
+          env
           npm install @semantic-release/exec @eclass/semantic-release-docker @semantic-release/git -D
           npx -c semantic-release

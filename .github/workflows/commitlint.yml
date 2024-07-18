@@ -2,10 +2,10 @@ name: Lint Commit Messages
 on:
   pull_request:
     branches:
-      - local_build
+      - alpha
   push:
     branches:
-      - local_build
+      - alpha
 
 jobs:
   commitlint:
