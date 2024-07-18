@@ -4,8 +4,7 @@ on:
   workflow_run:
     workflows: ["Lint Commit Messages"]
     branches:
-      - main
-      - beta
+    - alpha
     types:
       - completed
 
@@ -18,6 +17,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          ref: alpha
 
       - name: Set up Go 1.21.10
         uses: actions/setup-go@v5
@@ -33,13 +33,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: ['linux', 'windows', 'darwin']
+        os: ['linux', 'darwin']
         architecture: [amd64, arm64]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          ref: alpha
 
       - name: Set up Go 1.21.10
         uses: actions/setup-go@v5
@@ -66,6 +67,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          ref: alpha
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -81,7 +83,7 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USER: siredmar
+          GITHUB_USER: jr200
         run: |-
           #!/bin/bash
           set -e
