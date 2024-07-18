@@ -26,3 +26,4 @@ build/vault/plugins
 
 # Ignore DevSpace cache and log folder
 .devspace/
+.history/

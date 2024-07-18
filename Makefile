@@ -12,7 +12,7 @@ endif
 
 .DEFAULT_GOAL := all
 
-DOCKER_REGISTRY ?= siredmar
+DOCKER_REGISTRY ?= ghcr.io/jr200
 VERSION ?= $(shell git describe --tags --always --dirty)
 
 generate:

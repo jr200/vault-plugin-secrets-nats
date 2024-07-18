@@ -4,8 +4,7 @@ on:
   workflow_run:
     workflows: ["Lint Commit Messages"]
     branches:
-      - main
-      - beta
+    - alpha
     types:
       - completed
 
@@ -33,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: ['linux', 'windows', 'darwin']
+        os: ['linux', 'darwin']
         architecture: [amd64, arm64]
     steps:
       - name: Checkout
@@ -81,7 +80,7 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USER: siredmar
+          GITHUB_USER: jr200
         run: |-
           #!/bin/bash
           set -e
